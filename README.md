@@ -38,7 +38,7 @@ This step removes all the hyperlinks. For a deeper understanding of a problem, w
 This step removes all the symbols and numbers that we do not require. Depending on the problem, we can also replace the integer digits by the word if we would want to retain information about the numerical data. 
 
 ### Fixing word contractions
-This changes the word contractions. Considering an informal forum, users would be more inclined to user abbreviations. For example, instead of saying "oh my God", they would simply type "omg". We fix these contractions with the help of the contractions library on Python. 
+This changes the word contractions. Considering an informal forum, users would be more inclined to user abbreviations. For example, instead of saying "Oh my God", they would simply type "omg". Similarly, instead of typing "You are", users would type "you're".  We fix these contractions with the help of the contractions library on Python. 
 
 ### Lower-case 
 
@@ -51,3 +51,9 @@ Stop words do not contribute much to the overall semantic understanding of a sen
 ### Stemming and Lemmatization 
 
 Stemming essentially shortens the word by cutting of the suffix. In this case, the word “cleaning” changes into the word “clean”. This helps standardize words so that “cleaning” and “clean” would be considered the same meaning. However, stemming does not usually work well as intended. There are words which would be stemmed out but mean something completely different after cutting the suffix. Therefore, another technique called “Lemmatization” was introduced. Lemmatization changes the word into the root word. For example, in lemmatization, the word “is” and “are” changes into the root word “be”. 
+
+### Tokenizer 
+
+### Padding
+
+### Word Embeddings 
