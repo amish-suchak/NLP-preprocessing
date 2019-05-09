@@ -32,14 +32,22 @@ Each post is separated by 3 lines **|||** . We also see that there is a signific
 This step involves cleaning the data and performing some pre-processing such that we would be able to feed it into a Recurrent Neural Network based model. In the notebook, we will go through each phase of the pre-processing step and see what the output looks like for the same paragraph. In this section, we describe the steps we will take and why they are necessary. 
 
 ### Replacing links 
+This step removes all the hyperlinks. For a deeper understanding of a problem, we can take the information such as video title from YouTube links or Image Captions from Images since they may provide some insights. 
 
 ### Removing symbols and numbers
+This step removes all the symbols and numbers that we do not require. Depending on the problem, we can also replace the integer digits by the word if we would want to retain information about the numerical data. 
 
 ### Fixing word contractions
+This changes the word contractions. Considering an informal forum, users would be more inclined to user abbreviations. For example, instead of saying "oh my God", they would simply type "omg". We fix these contractions with the help of the contractions library on Python. 
 
-### Making everything lower-case 
+### Lower-case 
+
+This ensures that all the words are lower case. When we move over to the tokenizer stage, we want to make sure that the word "**S**ample" is treated the same as the word "**s**ample". 
 
 ### Removing stop-words 
+Stop words do not contribute much to the overall semantic understanding of a sentence. Web searches also generally remove the stop words. Examples of these words include: 
+> a, an, and , it, its, of, on, that, to
 
-### Lemmatizer
+### Stemming and Lemmatization 
 
+Stemming essentially shortens the word by cutting of the suffix. In this case, the word “cleaning” changes into the word “clean”. This helps standardize words so that “cleaning” and “clean” would be considered the same meaning. However, stemming does not usually work well as intended. There are words which would be stemmed out but mean something completely different after cutting the suffix. Therefore, another technique called “Lemmatization” was introduced. Lemmatization changes the word into the root word. For example, in lemmatization, the word “is” and “are” changes into the root word “be”. 
