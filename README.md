@@ -52,8 +52,37 @@ Stop words do not contribute much to the overall semantic understanding of a sen
 
 Stemming essentially shortens the word by cutting of the suffix. In this case, the word “cleaning” changes into the word “clean”. This helps standardize words so that “cleaning” and “clean” would be considered the same meaning. However, stemming does not usually work well as intended. There are words which would be stemmed out but mean something completely different after cutting the suffix. Therefore, another technique called “Lemmatization” was introduced. Lemmatization changes the word into the root word. For example, in lemmatization, the word “is” and “are” changes into the root word “be”. 
 
-### Tokenizer 
+After this step, we can see what our output would look like and compare it to the input:
 
-### Padding
+>"wouldear intp, enjoy conversation day. esoteric gabbing nature universe idea every rule social code arbitrary construct created... dear entj sub, long time see. sincerely, alpha none them. type hurt deep existential ways want part of. probably slide scale depend individual preferences, like everything humanity. draco malfoy also. would say either  . either  , though stack somewhat arbitrary distinction make believe core indicate primary motivation hand every action. therefore, a... particularly introvert extraverted, personally. said, would say somewhat unphased either social interactions alone. would say crave anything is... dear type  infp, absolute admiration refreshing. great girlfriend wish busy schedule could around one another often. keep...  still mean   people. probably see   others today. never understand fascination virtue rarity. so, esfj train also, right? toy idea op extrovert also awhile now, actually. many conversations him, however disincline believe due op much close fi... still esfj disagree. definite esfj. fe si this. been? mother worry sick. similar feel concern entps. collect shoes. like status nothing communicate thing much pair jordans."
 
-### Word Embeddings 
+### Tokenizer and padding 
+The Tokenizer step converts the sentence into an array of numbers. We define the max_features which is the maximum number of words we want in our vocabulary over the entire document. We then start ranking the words based on how common they are. For example, the most common word would be converted to an integer 1, and the least common word would be converted to an integer 3000 (assuming the maxium features was defined as 3000). We can also define the maximum length of each sample. If we only want to observe 500 words from a post instead of the entire post, we can set the maximum as 500. All the words after 500 words would be discarded and the samples less than 500 words would be "padded" with 0s to make the sample reach 500 words. 
+
+The output is now converted as: 
+
+>array([ 583, 1091,  173,  133,  672,  217, 1832, 2742,  500,  247, 2091,
+         99,   13,   16, 2015, 2659,  959,   97,   18,  385,  473,  476,
+         15,  148,  165,   82, 1638,  286,  926, 2044,    1,  141, 1678,
+         29,    3,   12,  191,  191,   46, 2016,  741,   11,  121, 1191,
+       2045, 1521, 1421,  369,  133,  616, 1161,  123,  755,  266, 1280,
+        310,  339,    3,   12,  741,  191,  217, 1833,  261,    3,   12,
+       2097,   93,   87,  500,   18,   59, 1564,  132,  907,  256, 1065,
+       1751,   33,   84,    7,  163,  147,  124,   66,   45,    5,   82,
+         16,  119,  283,   42,   73,  143,  336, 1046,   29,   55, 2479,
+        173,  700, 1055,   29, 1486,  140,   52,   71,  831,  275,  210,
+        121,  550,  700,   20,  213,  204,   66,  336,  839, 2713,  336,
+        201,  412,   78, 1271,  433,  462, 1056,  316,   10,  935,  543,
+       1861,    1, 1928,  194, 1129,   49,   20, 1391,   57,  120,   75,
+          4,  324,   86,  537,   85, 2430, 1296,   53,  383,  969,    4,
+         13, 2832,   21,   57,  129, 2814,  217, 1521,  746, 1599,  217,
+          1,    5,  523,  664,  145,  308,   38,  259,   61,  357,  419,
+         43,  138,  924,   31,    3,  138,   51,   14,  105,   30,  908,
+          2,   14,  339,    2,  364, 2621, 2480,  700,   65,  194,  184,
+         11,  154,   12,   32,  389,   52,  219,  380,   11,  205, 2602,
+        575,  155,    2,  364,   62,   37,  229,    3,   12,   65,  814,
+        173,  377,  627,  827,  165,   11,  154,   67,   66, 1446,  641,
+        212, 1442,   24,   12,  219,  448,  445,  734,  641,   29, 1844,
+        282,  245,  188,   48,  309])
+
+
